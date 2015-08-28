@@ -12,6 +12,17 @@ class Node(object):
         self.value = value
 
 
+# recursive
+def preOrderRecur(root):
+    if not root:
+        return
+    print(root.value)
+    if root.right:
+        preOrderRecur(root.right)
+    if root.left:
+        preOrderRecur(root.left)
+
+
 # iterative
 def preOrder(root):
     if root is None:
