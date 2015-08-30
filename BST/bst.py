@@ -23,6 +23,16 @@ def preOrderRecur(root):
         preOrderRecur(root.left)
 
 
+def postOrderRecur(root):
+    if not root:
+        return
+    if root.right:
+        postOrderRecur(root.right)
+    if root.left:
+        postOrderRecur(root.left)
+    print(root.value)
+
+
 # iterative
 def preOrder(root):
     if root is None:
