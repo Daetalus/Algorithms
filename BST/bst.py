@@ -17,19 +17,34 @@ def preOrderRecur(root):
     if not root:
         return
     print(root.value)
-    if root.right:
-        preOrderRecur(root.right)
+
     if root.left:
         preOrderRecur(root.left)
+    if root.right:
+        postOrderRecur(root.right)
+
+
+def inOrderRecur(root):
+    if not root:
+        return
+
+    if root.left:
+        inOrderRecur(root.left)
+
+    print(root.value)
+
+    if root.right:
+        inOrderRecur(root.right)
 
 
 def postOrderRecur(root):
     if not root:
         return
-    if root.right:
-        postOrderRecur(root.right)
+
     if root.left:
         postOrderRecur(root.left)
+    if root.right:
+        postOrderRecur(root.right)
     print(root.value)
 
 
