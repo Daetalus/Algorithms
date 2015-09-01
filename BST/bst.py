@@ -82,3 +82,22 @@ def inOrder(root):
             cur = cur.right
 
     return inorder
+
+def postOrder(root):
+    if not root:
+        return
+
+    stack = []
+    postorder = []
+    cur = root
+    while stack or cur:
+        while cur:
+            stack.append(cur)
+            cur = cur.left
+
+        if stack:
+            cur = stack.pop()
+            postorder.append(cur.value)
+            cur = cur.right
+
+    return postorder
