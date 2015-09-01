@@ -64,3 +64,21 @@ def preOrder(root):
             stack.append(node.left)
 
     return preorder
+
+def inOrder(root):
+    if not root:
+        return
+
+    stack = []
+    inorder = []
+    cur = root
+    while stack or cur:
+        if cur:
+            stack.append(cur)
+            cur = cur.left
+        else:
+            cur = stack.pop()
+            inorder.append(cur.value)
+            cur = cur.right
+
+    return inorder
