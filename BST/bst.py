@@ -101,3 +101,19 @@ def postOrder(root):
             cur = cur.right
 
     return postorder
+
+def levelOrder(root):
+    if not root:
+        return
+
+    queue = []
+    queue.append(root)
+    while queue:
+        cur = queue.pop(0)
+        # do something to cur
+
+        if cur.left:
+            queue.append(cur.left)
+
+        if cur.right:
+            queue.append(cur.right)
