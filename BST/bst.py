@@ -107,9 +107,11 @@ def levelOrder(root):
         return
 
     queue = []
+    levelorder = []
     queue.append(root)
     while queue:
         cur = queue.pop(0)
+        levelorder.append(cur)
         # do something to cur
 
         if cur.left:
@@ -117,3 +119,5 @@ def levelOrder(root):
 
         if cur.right:
             queue.append(cur.right)
+
+    return levelorder
