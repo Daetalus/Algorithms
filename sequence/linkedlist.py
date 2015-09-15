@@ -9,12 +9,12 @@ class Node(object):
     def __init__(self, data, next=None):
         self.data = data
         self.next = next
-        self.size = 0
 
 
 class LinkedList(object):
     def __init__(self):
         self.head = None
+        self.size = 0
 
     def __len__(self):
         return self.size
