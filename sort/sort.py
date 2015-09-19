@@ -52,3 +52,22 @@ def _quickSort(a, low, high):
 
 def quickSort(a):
     _quickSort(a, 0, len(a) - 1)
+
+
+def quickSortPythonic(a):
+    less = []
+    equal = []
+    greater = []
+
+    if len(a) > 1:
+        pivot = a[0]
+        for item in a:
+            if item < pivot:
+                less.append(item)
+            elif item > pivot:
+                greater.append(item)
+            else:
+                equal.append(item)
+        return quickSortPythonic(less) + equal + quickSortPythonic(greater)
+    else:
+        return a
