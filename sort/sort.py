@@ -54,6 +54,14 @@ def quickSort(a):
     _quickSort(a, 0, len(a) - 1)
 
 
+# This method need create local variable in each call.
+# The original method doesn't need to create local variable.
+# The space complexity seems is O(NlogN) TODO, need verify it
+# tradictional quickSort space complexity is O(logN)
+# and time complexity is O(logN)
+# This is three way quick sort. Time complexity between O(N) and O(logN)
+# We can use a help function(with index parameter) to reduce the space
+# complexity
 def quickSortPythonic(a):
     less = []
     equal = []
