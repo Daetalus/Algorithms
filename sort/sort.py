@@ -5,8 +5,28 @@ from __future__ import unicode_literals
 from __future__ import print_function
 
 
-def merge(list_a, list_b):
-    pass
+aux = list()
+
+def merge(list_a, low, mid, high):
+    i = low,
+    j = mid + 1
+
+    for k in range(low, high):
+        aux[k] = list_a[k]
+
+    for k in range(low, high):
+        if i > mid:
+            list_a[k] = aux[j]
+            j += 1
+        elif j > high:
+            list_a[k] = list_a[i]
+            i += 1
+        elif aux[i] < aux[j]:
+            list_a[k] = list_a[i]
+            i += 1
+        else:
+            list_a[k] = list_a[j]
+            j += 1
 
 
 def mergeSort(arr):
