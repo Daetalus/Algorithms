@@ -33,8 +33,14 @@ def mergeSort(arr):
     pass
 
 
-def selectSort(arr):
-    pass
+def selectSort(a):
+    for i in range(len(a)):
+        min = i
+        for j in range(i, len(a)):
+            if a[j] < a[min]:
+                min = j
+        a[i], a[min] = a[min], a[i]
+    return a
 
 
 def insertionSort(arr):
