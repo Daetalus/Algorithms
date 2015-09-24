@@ -43,8 +43,15 @@ def selectSort(a):
     return a
 
 
-def insertionSort(arr):
-    pass
+def insertionSort(a):
+    for i in range(len(a)):
+        item = a[i]
+        j = i
+        while j > 0 and a[j - 1] > item:
+            a[j] = a[j - 1]
+            j -= 1
+        a[j] = item
+    return a
 
 
 def partition(a, low, high):
