@@ -29,10 +29,16 @@ def merge(list_a, low, mid, high):
             j += 1
 
 
+# Stable
+# Time: o(nlogN)
+# Space: o(N)
 def mergeSort(arr):
     pass
 
 
+# Unsable
+# Time: o(N^2)
+# Space: o(N^2)
 def selectSort(a):
     for i in range(len(a)):
         min = i
@@ -54,6 +60,8 @@ def insertionSort(a):
     return a
 
 
+# Unstable:
+# Time: O(n^2)
 def partition(a, low, high):
     start = low + 1
     end = high
@@ -83,6 +91,9 @@ def _quickSort(a, low, high):
     _quickSort(a, pivot + 1, high)
 
 
+# Unstable
+# Time: o(nlogn) on average, o(n^2) for the worst case
+# Space: o(nlogn)
 def quickSort(a):
     _quickSort(a, 0, len(a) - 1)
 
