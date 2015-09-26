@@ -36,7 +36,7 @@ def mergeSort(arr):
     pass
 
 
-# Unsable
+# Unstable
 # Time: o(N^2)
 # Space: o(N^2)
 def selectSort(a):
@@ -49,6 +49,20 @@ def selectSort(a):
     return a
 
 
+# Stable
+# Time: o(N^2), best: o(N)
+# Space: o(1)
+def bubblesort(a):
+    for i in range(len(a)):
+        for j in range(i, len(a)):
+            if a[i] > a[j]:
+                a[i], a[j] = a[j], a[i]
+    return a
+
+
+# Stable
+# Time: o(N^2), best: o(N)
+# Space: o(1)
 def insertionSort(a):
     for i in range(len(a)):
         item = a[i]
