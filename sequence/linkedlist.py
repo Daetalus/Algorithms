@@ -19,6 +19,15 @@ class LinkedList(object):
     def __len__(self):
         return self.size
 
+    def __contains__(self, item):
+        head = self.head
+        while head:
+            if item == head.data:
+                return True
+            else:
+                head = head.next
+        return False
+
     def insert(self, data):
         self.head = Node(data, self.head)
         self.size += 1
