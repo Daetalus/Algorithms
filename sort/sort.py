@@ -137,3 +137,12 @@ def quickSortPythonic(a):
         return quickSortPythonic(less) + equal + quickSortPythonic(greater)
     else:
         return a
+
+
+def testQuickSort1():
+    seq = [3,5,1,3,9,4,6,3,6,7,4,3,2,5,7,8]
+    assert(quickSortPythonic(seq) == sorted(seq))
+    print('Tests passed!')
+
+if __name__ == '__main__':
+    testQuickSort1()
