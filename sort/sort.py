@@ -81,9 +81,9 @@ def partition(a, low, high):
     end = high
     pivotItem = a[low]
     while True:
-        while a[start] < pivotItem:
+        while a[start] <= pivotItem:
             start += 1
-            if (start == high):
+            if (start >= high):
                 break
         while a[end] > pivotItem:
             end -= 1
@@ -91,9 +91,9 @@ def partition(a, low, high):
                 break
         if (start >= end):
             break
-        a[start] = a[end]
+        a[start], a[end] = a[end], a[start]
 
-    a[low] = a[end]
+    a[low], a[end] = a[end], a[low]
     return end
 
 
@@ -103,13 +103,14 @@ def _quickSort(a, low, high):
     pivot = partition(a, low, high)
     _quickSort(a, low, pivot - 1)
     _quickSort(a, pivot + 1, high)
+    return a
 
 
 # Unstable
 # Time: o(nlogn) on average, o(n^2) for the worst case
 # Space: o(nlogn)
 def quickSort(a):
-    _quickSort(a, 0, len(a) - 1)
+    return _quickSort(a, 0, len(a) - 1)
 
 
 # This method need create local variable in each call.
@@ -142,7 +143,9 @@ def quickSortPythonic(a):
 def testQuickSort1():
     seq = [3,5,1,3,9,4,6,3,6,7,4,3,2,5,7,8]
     assert(quickSortPythonic(seq) == sorted(seq))
-    print('Tests passed!')
+    print('Pythonic quick sort tests passed!')
+    assert(quickSort(seq) == sorted(seq))
+    print('Classic quick sort tests passed!')
 
 if __name__ == '__main__':
     testQuickSort1()
