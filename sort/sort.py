@@ -146,6 +146,10 @@ def testQuickSort1():
     print('Pythonic quick sort tests passed!')
     assert(quickSort(seq) == sorted(seq))
     print('Classic quick sort tests passed!')
+    assert(selectSort(seq) == sorted(seq))
+    print('Insertion sort passed!')
+    assert(bubblesort(seq) == sorted(seq))
+    print('Bubble sort passed!')
 
 if __name__ == '__main__':
     testQuickSort1()
