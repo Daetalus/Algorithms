@@ -7,6 +7,7 @@ from __future__ import print_function
 
 aux = list()
 
+# Classical merge sort
 def merge(list_a, low, mid, high):
     i = low,
     j = mid + 1
@@ -29,11 +30,24 @@ def merge(list_a, low, mid, high):
             j += 1
 
 
+def mergeSort_recursive(arr, aux, low, high):
+    if high <= low:
+        return
+
+    mid = low + (high - low) / 2
+    mergeSort_recursive(arr, aux, low, mid)
+    mergeSort_recursive(arr, aux, mid + 1, high)
+    merge(a, aux, low, mid, high)
+
 # Stable
 # Time: o(nlogN)
 # Space: o(N)
 def mergeSort(arr):
-    pass
+    n = len(arr)
+    mid = n / 2
+    mergeSort_recursive(arr, 0, mid)
+    mergeSort_recursive(arr, mid + 1, n)
+    return merge(arr, 0, mid, n)
 
 
 # Unstable
