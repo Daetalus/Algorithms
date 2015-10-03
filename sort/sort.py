@@ -7,6 +7,7 @@ from __future__ import print_function
 
 aux = list()
 
+
 # Classical merge sort
 def merge(list_a, low, mid, high):
     i = low,
@@ -37,7 +38,8 @@ def mergeSort_recursive(arr, aux, low, high):
     mid = low + (high - low) / 2
     mergeSort_recursive(arr, aux, low, mid)
     mergeSort_recursive(arr, aux, mid + 1, high)
-    merge(a, aux, low, mid, high)
+    merge(arr, aux, low, mid, high)
+
 
 # Stable
 # Time: o(nlogN)
@@ -48,6 +50,33 @@ def mergeSort(arr):
     mergeSort_recursive(arr, 0, mid)
     mergeSort_recursive(arr, mid + 1, n)
     return merge(arr, 0, mid, n)
+
+
+# Pythonic merge sort
+def mergePythonic(a, b):
+    result = []
+    i, j = (0, 0)
+    while i < len(a) and j < len(b):
+        if a[i] <= b[j]:
+            result.append(a[i])
+            i += 1
+        else:
+            result.append(b[j])
+            j += 1
+    if a[i:]:
+        result.extend(a[i:])
+    if b[j:]:
+        result.extend(b[j:])
+    return result
+
+
+def mergesort(arr):
+    n = len(arr)
+    if n <= 1:
+        return arr
+    a1 = mergesort(arr[:n/2])
+    a2 = mergesort(arr[n/2:])
+    return mergePythonic(a1, a2)
 
 
 # Unstable
@@ -155,7 +184,7 @@ def quickSortPythonic(a):
 
 
 def testQuickSort1():
-    seq = [3,5,1,3,9,4,6,3,6,7,4,3,2,5,7,8]
+    seq = [3, 5, 1, 3, 9, 4, 6, 3, 6, 7, 4, 3, 2, 5, 7, 8]
     assert(quickSortPythonic(seq) == sorted(seq))
     print('Pythonic quick sort tests passed!')
     assert(quickSort(seq) == sorted(seq))
