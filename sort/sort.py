@@ -82,7 +82,7 @@ def mergesort(arr):
 # Unstable
 # Time: o(N^2)
 # Space: o(N^2)
-def selectSort(a):
+def selectionSort(a):
     for i in range(len(a)):
         min = i
         for j in range(i, len(a)):
@@ -95,7 +95,7 @@ def selectSort(a):
 # Stable
 # Time: o(N^2), best: o(N)
 # Space: o(1)
-def bubblesort(a):
+def bubbleSort(a):
     for i in range(len(a)):
         for j in range(i, len(a)):
             if a[i] > a[j]:
@@ -107,6 +107,9 @@ def bubblesort(a):
 # Time: o(N^2), best: o(N)
 # Space: o(1)
 def insertionSort(a):
+    if not a or len(a) == 1:
+        return a
+
     for i in range(len(a)):
         item = a[i]
         j = i
@@ -189,9 +192,9 @@ def testQuickSort1():
     print('Pythonic quick sort tests passed!')
     assert(quickSort(seq) == sorted(seq))
     print('Classic quick sort tests passed!')
-    assert(selectSort(seq) == sorted(seq))
+    assert(selectionSort(seq) == sorted(seq))
     print('Insertion sort passed!')
-    assert(bubblesort(seq) == sorted(seq))
+    assert(bubbleSort(seq) == sorted(seq))
     print('Bubble sort passed!')
 
 if __name__ == '__main__':
