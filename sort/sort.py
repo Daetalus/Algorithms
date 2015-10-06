@@ -188,13 +188,16 @@ def quickSortPythonic(a):
 
 def testQuickSort1():
     seq = [3, 5, 1, 3, 9, 4, 6, 3, 6, 7, 4, 3, 2, 5, 7, 8]
-    assert(quickSortPythonic(seq) == sorted(seq))
+    sorted_seq = sorted(seq)
+    assert(quickSortPythonic(seq) == sorted_seq)
     print('Pythonic quick sort tests passed!')
-    assert(quickSort(seq) == sorted(seq))
+    assert(quickSort(seq) == sorted_seq)
     print('Classic quick sort tests passed!')
-    assert(selectionSort(seq) == sorted(seq))
+    assert(selectionSort(seq) == sorted_seq)
+    print("Selection sort passed!")
+    assert(insertionSort(seq) == sorted_seq)
     print('Insertion sort passed!')
-    assert(bubbleSort(seq) == sorted(seq))
+    assert(bubbleSort(seq) == sorted_seq)
     print('Bubble sort passed!')
 
 if __name__ == '__main__':
