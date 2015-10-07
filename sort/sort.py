@@ -10,7 +10,7 @@ aux = list()
 
 # Classical merge sort
 def merge(list_a, low, mid, high):
-    i = low,
+    i = low
     j = mid + 1
 
     for k in range(low, high):
@@ -39,17 +39,16 @@ def mergeSort_recursive(arr, aux, low, high):
     mergeSort_recursive(arr, aux, low, mid)
     mergeSort_recursive(arr, aux, mid + 1, high)
     merge(arr, aux, low, mid, high)
+    return arr
 
 
 # Stable
 # Time: o(nlogN)
 # Space: o(N)
 def mergeSort(arr):
-    n = len(arr)
-    mid = n / 2
-    mergeSort_recursive(arr, 0, mid)
-    mergeSort_recursive(arr, mid + 1, n)
-    return merge(arr, 0, mid, n)
+    if not arr or len(arr) == 1:
+        return arr
+    return mergeSort_recursive(arr, aux, 0, len(arr))
 
 
 # Pythonic merge sort
