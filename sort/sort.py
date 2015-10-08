@@ -119,6 +119,27 @@ def insertionSort(a):
     return a
 
 
+def binaryInsertionSort(a):
+    if not a or len(a) == 1:
+        return a
+
+    for i in range(len(a)):
+        item = a[i]
+        low = 0
+        high = i - 1
+        while low <= high:
+            mid = (low + high) / 2
+            if item < a[mid]:
+                high = mid - 1
+            else:
+                low = mid + 1
+        j = i - 1
+        while j >= high:
+            a[j + 1] = a[j]
+            j -= 1
+        a[high + 1] = item
+
+
 # Unstable:
 # Time: O(n^2)
 def partition(a, low, high):
