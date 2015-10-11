@@ -12,42 +12,6 @@ class Node(object):
         self.value = value
 
 
-# recursive
-def preOrderRecur(root):
-    if not root:
-        return
-    print(root.value)
-
-    if root.left:
-        preOrderRecur(root.left)
-    if root.right:
-        postOrderRecur(root.right)
-
-
-def inOrderRecur(root):
-    if not root:
-        return
-
-    if root.left:
-        inOrderRecur(root.left)
-
-    print(root.value)
-
-    if root.right:
-        inOrderRecur(root.right)
-
-
-def postOrderRecur(root):
-    if not root:
-        return
-
-    if root.left:
-        postOrderRecur(root.left)
-    if root.right:
-        postOrderRecur(root.right)
-    print(root.value)
-
-
 # iterative
 def preOrder(root):
     if root is None:
@@ -65,23 +29,18 @@ def preOrder(root):
 
     return preorder
 
-def inOrder(root):
+
+# recursive
+def preOrderRecur(root):
     if not root:
         return
+    print(root.value)
 
-    stack = []
-    inorder = []
-    cur = root
-    while stack or cur:
-        if cur:
-            stack.append(cur)
-            cur = cur.left
-        else:
-            cur = stack.pop()
-            inorder.append(cur.value)
-            cur = cur.right
+    if root.left:
+        preOrderRecur(root.left)
+    if root.right:
+        postOrderRecur(root.right)
 
-    return inorder
 
 def postOrder(root):
     if not root:
@@ -101,6 +60,50 @@ def postOrder(root):
             cur = cur.right
 
     return postorder
+
+
+def postOrderRecur(root):
+    if not root:
+        return
+
+    if root.left:
+        postOrderRecur(root.left)
+    if root.right:
+        postOrderRecur(root.right)
+    print(root.value)
+
+
+def inOrder(root):
+    if not root:
+        return
+
+    stack = []
+    inorder = []
+    cur = root
+    while stack or cur:
+        if cur:
+            stack.append(cur)
+            cur = cur.left
+        else:
+            cur = stack.pop()
+            inorder.append(cur.value)
+            cur = cur.right
+
+    return inorder
+
+
+def inOrderRecur(root):
+    if not root:
+        return
+
+    if root.left:
+        inOrderRecur(root.left)
+
+    print(root.value)
+
+    if root.right:
+        inOrderRecur(root.right)
+
 
 def levelOrder(root):
     if not root:
