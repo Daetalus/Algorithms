@@ -42,24 +42,37 @@ def preOrderRecur(root):
         postOrderRecur(root.right)
 
 
-def postOrder(root):
+def postOrderInterative(root):
     if not root:
         return
 
+    visited = set()
     stack = []
-    postorder = []
+    result = []
     cur = root
-    while stack or cur:
-        while cur:
+
+    while cur or stack:
+        if cur:
             stack.append(cur)
+            # all the way to the left
             cur = cur.left
-
-        if stack:
+        else:
             cur = stack.pop()
-            postorder.append(cur.value)
-            cur = cur.right
 
-    return postorder
+            # right is existed and not visited, add current node
+            # to stack
+            if cur.right and cur.right not in visited:
+                stack.append(cur)
+                cur = cur.right
+            # right visited or right is None
+            # process current node
+            else:
+                # mark current node as visited
+                visited.add(cur)
+                result.append(cur.val)
+                # mark current node as None
+                # prevent jump to the left again
+                cur = None
 
 
 def postOrderRecur(root):
