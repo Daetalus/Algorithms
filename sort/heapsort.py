@@ -7,4 +7,9 @@ from __future__ import print_function
 
 class HeapSort(object):
     def __init__(self, unsortedList):
-        pass
+        self.nodes = []
+        # need to consider use which implementaion internally.
+
+    def insert(self, item):
+        self.nodes.append(item)
+        self.heapUp()
