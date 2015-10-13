@@ -86,7 +86,7 @@ def postOrderRecur(root):
     print(root.value)
 
 
-def inOrder(root):
+def inOrderIterative(root):
     if not root:
         return
 
