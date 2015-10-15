@@ -15,6 +15,7 @@ class LinkedList(object):
     def __init__(self):
         self.head = None
         self.size = 0
+        self.cursor = None
 
     def __len__(self):
         return self.size
@@ -34,7 +35,17 @@ class LinkedList(object):
 
     def append(self, data):
         temp = self.head
+        if self.head:
+            self.cursor = self.head
         while temp.next:
             temp = temp.next
         temp.next = Node(data)
         self.size += 1
+
+    def next(self):
+        if not self.cursor:
+            raise StopIteration
+        else:
+            node = self.curosr.data
+            self.cursor = self.cursor.next
+            return node
