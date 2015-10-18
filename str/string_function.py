@@ -21,8 +21,49 @@ def reveseWord(input_str):
         str_list[i] = str_list[i][::-1]
     return ' '.join(str_list)
 
+
+def atoi(str):
+    # check is None first
+    if not str:
+        return 0
+
+    # Second, strip str
+    index = 0
+    while str[index] == ' ':
+        index += 1
+
+    # Third, check sign
+    positive = True
+    if str[index] == '-':
+        positive = False
+        index += 1
+    if str[index] == '+':
+        index += 1
+
+    # loop, get the result
+    result = 0
+    for i in xrange(index, len(str)):
+        # if not a digit, break, return current result
+        # Question: What about "213k"?
+        # return 0 or 213?
+        if not str[i].isdigit():
+            break
+        digit = ord(str[i]) - ord('0')
+        result = result * 10 + digit
+    # check overflow
+    if positive:
+        if result > 2147483647:
+            return 2147483647
+        return result
+    else:
+        if -result < -2147483648:
+            return -2147483648
+        return -result
+
 if __name__ == '__main__':
     test = "I am a student."
     result = reveseWord(test)
+    test1 = "World"
+    result = reveseWord(test1)
     # result = reverseStr(test, 0, len(test) - 1)
     print(result)
