@@ -60,6 +60,26 @@ def atoi(str):
             return -2147483648
         return -result
 
+
+def isPalindrome(self, s):
+    start = 0
+    end = len(s) - 1
+
+    while start < end:
+        while not s[start].isalnum() and start < end:
+            start += 1
+
+        while not s[end].isalnum() and start < end:
+            end -= 1
+
+        if start < end and s[start].lower() != s[end].lower():
+            return False
+        end -= 1
+        start += 1
+
+    return True
+
+
 if __name__ == '__main__':
     test = "I am a student."
     result = reveseWord(test)
