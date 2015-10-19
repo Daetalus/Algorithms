@@ -80,6 +80,27 @@ def isPalindrome(self, s):
     return True
 
 
+def sortLetters(chars):
+    # write your code here
+    if not chars:
+        return None
+    if len(chars) == 1:
+        return chars
+    chars_list = list(chars)
+    begin = 0
+    end = len(chars) - 1
+    while begin < end:
+        while chars_list[begin] >= 'a' and begin < end:
+            begin += 1
+        while chars_list[end] <= 'Z' and begin < end:
+            end -= 1
+
+        chars_list[begin], chars_list[end] = chars_list[end], chars_list[begin]
+
+    chars = ''.join(chars_list)
+    return chars
+
+
 if __name__ == '__main__':
     test = "I am a student."
     result = reveseWord(test)
@@ -87,3 +108,6 @@ if __name__ == '__main__':
     result = reveseWord(test1)
     # result = reverseStr(test, 0, len(test) - 1)
     print(result)
+    test2 = "abAcD"
+    print(sortLetters(test2))
+    print(test2)
