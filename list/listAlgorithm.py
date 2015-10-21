@@ -41,3 +41,24 @@ def swapPairs(head):
         cur.next = next
 
     return dummy.next
+
+
+def deleteDuplicates(head):
+    if not head or not head.next:
+        return head
+
+    cur = head
+    next = cur.next
+    # use next as sentinel!!!
+    while next:
+        if next.val == cur.val:
+            cur.next = cur.next.next
+        else:
+            cur = next
+        next = cur.next
+    return head
+
+
+def nthToLast(head):
+    # recursive?
+    pass
